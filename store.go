@@ -41,12 +41,7 @@ func (s Store) Set(key string, value []byte) error {
 }
 
 func (s Store) Get(key string) ([]byte, error) {
-	value, err := s.client.Get(s.ctx, s.key(key)).Bytes()
-	if err == redis.Nil {
-		return nil, nil
-	} else {
-		return value, err
-	}
+	return s.client.Get(s.ctx, s.key(key)).Bytes()
 }
 
 func (s Store) Delete(key string) error {

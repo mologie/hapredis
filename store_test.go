@@ -5,6 +5,7 @@ import (
 	"errors"
 	"testing"
 
+	"github.com/go-redis/redis/v8"
 	"github.com/go-redis/redismock/v8"
 	"github.com/stretchr/testify/require"
 )
@@ -18,7 +19,7 @@ func TestStore(t *testing.T) {
 	mock.ExpectGet("prefix:foo").RedisNil()
 	r, err := store.Get("foo")
 	req.NoError(mock.ExpectationsWereMet())
-	req.NoError(err)
+	req.ErrorIs(err, redis.Nil)
 	req.Nil(r)
 
 	mock.ExpectSet("prefix:foo", []byte("bar"), 0).SetVal("OK")
