@@ -2,11 +2,12 @@ package main
 
 import (
 	"context"
+	"log"
+
 	"github.com/brutella/hap"
 	"github.com/brutella/hap/accessory"
 	"github.com/go-redis/redis/v8"
 	"github.com/mologie/hapredis"
-	"log"
 )
 
 func main() {

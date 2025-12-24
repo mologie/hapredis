@@ -3,9 +3,10 @@ package hapredis
 import (
 	"context"
 	"errors"
+	"testing"
+
 	"github.com/go-redis/redismock/v8"
 	"github.com/stretchr/testify/require"
-	"testing"
 )
 
 func TestStore(t *testing.T) {

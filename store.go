@@ -2,9 +2,10 @@ package hapredis
 
 import (
 	"context"
+	"strings"
+
 	"github.com/brutella/hap"
 	"github.com/go-redis/redis/v8"
-	"strings"
 )
 
 // Store is a Redis storage adapter for hap.Server.
