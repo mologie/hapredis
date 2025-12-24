@@ -2,6 +2,7 @@ package hapredis
 
 import (
 	"context"
+	"slices"
 	"strings"
 
 	"github.com/brutella/hap"
@@ -74,6 +75,7 @@ func (s Store) KeysWithSuffix(suffix string) ([]string, error) {
 	for key := range keyMap {
 		result = append(result, key)
 	}
+	slices.Sort(result)
 	return result, nil
 }
 
